@@ -1,5 +1,6 @@
 package com.example.cine;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -20,12 +21,45 @@ public class SinopseFilme extends AppCompatActivity {
     int pos = 0;
 
 
-    protected void onCreate(Bundle savedInstanceState) {
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_sinopse_filme);
+//
+//        Intent intent = getIntent();
+//        pos = intent.getIntExtra("filme", 0);
+//
+//        voltar = findViewById(R.id.voltar2);
+//
+//        voltar.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+//                startActivity(i);
+//            }
+//        });
+//
+//        this.updateLabel();
+//    }
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sinopse_filme);
 
-        Intent intent = getIntent();
-        pos = intent.getIntExtra("livro", 0);
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            String titulo = extras.getString("titulo");
+            TextView nometxt = (TextView) findViewById(R.id.nomeFilme);
+            nometxt.setText(titulo);
+            String sinopse = extras.getString("sinopse");
+            TextView sinopsetxt = (TextView) findViewById(R.id.sinopseFilme);
+            sinopsetxt.setText(sinopse);
+            String entrada = extras.getString("entrada");
+            TextView entradatxt = (TextView) findViewById(R.id.entrada);
+            entradatxt.setText(entrada);
+            String imagem = extras.getString("imagem");
+
+        }
 
         voltar = findViewById(R.id.voltar2);
 
@@ -37,19 +71,18 @@ public class SinopseFilme extends AppCompatActivity {
             }
         });
 
-        this.updateLabel();
     }
 
-    private void updateLabel() {
-        Filme  filme = MainActivity.listaFilmes.get(this.pos);
-
-        nomeFilme2 = findViewById(R.id.nomeFilme);
-        nomeFilme2.setText(filme.getTitulo());
-
-        sinopseFilme2 = findViewById(R.id.sinopseFilme);
-        sinopseFilme2.setText(filme.getSinopse());
-
-        entradaFilme2 = findViewById(R.id.entrada);
-        entradaFilme2.setText(filme.getEntrada());
-    }
+//    private void updateLabel() {
+//        Filme  filme = MainActivity.listaFilmes.get(this.pos);
+//
+//        nomeFilme2 = findViewById(R.id.nomeFilme);
+//        nomeFilme2.setText(filme.getTitulo());
+//
+//        sinopseFilme2 = findViewById(R.id.sinopseFilme);
+//        sinopseFilme2.setText(filme.getSinopse());
+//
+//        entradaFilme2 = findViewById(R.id.entrada);
+//        entradaFilme2.setText(filme.getEntrada());
+//    }
 }

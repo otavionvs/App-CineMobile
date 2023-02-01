@@ -1,22 +1,22 @@
 package com.example.cine;
 
 public class Filme {
-    private String Titulo, sinopse, entrada;
+    private String titulo, sinopse, entrada;
     private int imagem;
 
     public Filme(String titulo, String sinopse, String entrada, int imagem) {
-        Titulo = titulo;
+        this.titulo = titulo;
         this.sinopse = sinopse;
         this.entrada = entrada;
         this.imagem = imagem;
     }
 
     public String getTitulo() {
-        return Titulo;
+        return titulo;
     }
 
     public void setTitulo(String titulo) {
-        Titulo = titulo;
+        titulo = titulo;
     }
 
     public String getSinopse() {

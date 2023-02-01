@@ -15,10 +15,10 @@ public class FilmeViewHolder extends RecyclerView.ViewHolder {
 
 public FilmeViewHolder(@NonNull View itemView) {
         super(itemView);
-        nomeFilme = itemView.findViewById(R.id.nomeFilme);
-        sinopseFilme = itemView.findViewById(R.id.sinopseFilme);
-        entradaFilme = itemView.findViewById(R.id.entrada);
-        fotoFilme = itemView.findViewById(R.id.fotoFilme);
-        quadrado = itemView.findViewById(R.id.quadrado);
+        this.nomeFilme = itemView.findViewById(R.id.nomeFilme);
+        this.sinopseFilme = itemView.findViewById(R.id.sinopseFilme);
+        this.entradaFilme = itemView.findViewById(R.id.entrada);
+        this.fotoFilme = itemView.findViewById(R.id.fotoFilme);
+        this.quadrado = itemView.findViewById(R.id.quadrado);
         }
 }
