@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,13 +14,15 @@ import android.widget.Button;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements SelectListener{
 
     private RecyclerView recycler;
     private FilmeAdapter adapter;
-    public static ArrayList<Filme> listaFilmes = new ArrayList<>();
+    public static List<Filme> listaFilmes = new ArrayList<Filme>();
     private int [] imagens = {R.drawable.pantera, R.drawable.addams, R.drawable.jurassic};
+
 
 //    @Override
 //    protected void onCreate(Bundle savedInstanceState) {
@@ -67,11 +70,11 @@ public class MainActivity extends AppCompatActivity implements SelectListener{
             String entrada = extras.getString("entrada");
 //            String ano = extras.getString("ano");
             String imagem = extras.getString("imagem");
-
-            listaFilmes.add(new Filme(titulo, sinopse, entrada, R.drawable.addams));
+            Uri fotoconvetida = Uri.parse(imagem);
+            listaFilmes.add(new Filme(titulo, sinopse, entrada, fotoconvetida));
         }else {
-            listaFilmes.add(new Filme("Wakanda Forever", "Um filme da Marvel","123", R.drawable.addams));
-            listaFilmes.add(new Filme("Familia Addams", "Um Otimo filme@gmail.com","123", R.drawable.addams));
+//            listaFilmes.add(new Filme("Wakanda Forever", "Um filme da Marvel","123", R.drawable.addams));
+//            listaFilmes.add(new Filme("Familia Addams", "Um Otimo filme@gmail.com","123", R.drawable.addams));
         }
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
@@ -95,10 +98,10 @@ public class MainActivity extends AppCompatActivity implements SelectListener{
     @Override
     public void onItemClicked(Filme filme) {
         Intent i = new Intent(MainActivity.this, SinopseFilme.class);
-//        i.putExtra("titulo", filme.getTitulo());
-//        i.putExtra("sinopse", filme.getSinopse());
-//        i.putExtra("entrada", filme.getEntrada());
-//        i.putExtra("imagem", filme.getImagem());
+        i.putExtra("titulo", filme.getTitulo());
+        i.putExtra("sinopse", filme.getSinopse());
+        i.putExtra("entrada", filme.getEntrada());
+        i.putExtra("imagem", filme.getImagem());
         startActivity(i);
     }
 

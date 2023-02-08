@@ -4,21 +4,24 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class SinopseFilme extends AppCompatActivity {
 
-    FloatingActionButton voltar;
-    MainActivity mainActivity;
-    TextView nomeFilme2;
-    TextView sinopseFilme2;
-    TextView entradaFilme2;
-    Filme filme;
-    int pos = 0;
+//    FloatingActionButton voltar;
+//    MainActivity mainActivity;
+//    TextView nomeFilme2;
+//    TextView sinopseFilme2;
+//    TextView entradaFilme2;
+//    Filme filme;
+//    int pos = 0;
 
 
 //    protected void onCreate(Bundle savedInstanceState) {
@@ -48,30 +51,62 @@ public class SinopseFilme extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            String titulo = extras.getString("titulo");
-            TextView nometxt = (TextView) findViewById(R.id.nomeFilme);
-            nometxt.setText(titulo);
+            String nome = extras.getString("titulo");
+            TextView nometxt = (TextView) findViewById(R.id.titulo);
+            nometxt.setText(nome);
             String sinopse = extras.getString("sinopse");
-            TextView sinopsetxt = (TextView) findViewById(R.id.sinopseFilme);
+            TextView sinopsetxt = (TextView) findViewById(R.id.sinopse);
             sinopsetxt.setText(sinopse);
             String entrada = extras.getString("entrada");
             TextView entradatxt = (TextView) findViewById(R.id.entrada);
             entradatxt.setText(entrada);
             String imagem = extras.getString("imagem");
+            Uri imagemConvertida = Uri.parse(imagem);
 
+            ImageView imageview = (ImageView) findViewById(R.id.imagem);
+            imageview.setImageURI(imagemConvertida);
         }
 
-        voltar = findViewById(R.id.voltar2);
-
-        voltar.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton botaoVoltar = findViewById(R.id.voltarDetalhes);
+        botaoVoltar.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(i);
+            public void onClick(View arg0) {
+                finish();
             }
         });
-
     }
+
+//    @Override
+//    protected void onCreate(@Nullable Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_sinopse_filme);
+//
+//        Bundle extras = getIntent().getExtras();
+//        if (extras != null) {
+//            String titulo = extras.getString("titulo");
+//            TextView nometxt = (TextView) findViewById(R.id.titulo);
+//            nometxt.setText(titulo);
+//            String sinopse = extras.getString("sinopse");
+//            TextView sinopsetxt = (TextView) findViewById(R.id.sinopse);
+//            sinopsetxt.setText(sinopse);
+//            String entrada = extras.getString("entrada");
+//            TextView entradatxt = (TextView) findViewById(R.id.entrada);
+//            entradatxt.setText(entrada);
+//            String imagem = extras.getString("imagem");
+//
+//        }
+//
+//        voltar = findViewById(R.id.voltar2);
+//
+//        voltar.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+//                startActivity(i);
+//            }
+//        });
+//
+//    }
 
 //    private void updateLabel() {
 //        Filme  filme = MainActivity.listaFilmes.get(this.pos);

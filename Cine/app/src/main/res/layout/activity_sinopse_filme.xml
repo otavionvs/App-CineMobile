@@ -7,7 +7,7 @@
     tools:context=".SinopseFilme">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/voltar2"
+        android:id="@+id/voltarDetalhes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -40,10 +40,10 @@
         android:text="Sinopse"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toBottomOf="@+id/titulo" />
 
     <TextView
-        android:id="@+id/textView8"
+    android:id="@+id/titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -53,7 +53,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/sinopse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -70,10 +70,10 @@
         android:text="Valor da Entrada"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        app:layout_constraintTop_toBottomOf="@+id/sinopse" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/entrada"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -90,10 +90,10 @@
         android:text="Banner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+        app:layout_constraintTop_toBottomOf="@+id/entrada" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imagem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"

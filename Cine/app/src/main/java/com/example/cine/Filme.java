@@ -1,10 +1,12 @@
 package com.example.cine;
 
-public class Filme {
-    private String titulo, sinopse, entrada;
-    private int imagem;
+import android.net.Uri;
 
-    public Filme(String titulo, String sinopse, String entrada, int imagem) {
+public class Filme {
+    String titulo, sinopse, entrada;
+    Uri imagem;
+
+    public Filme(String titulo, String sinopse, String entrada, Uri imagem) {
         this.titulo = titulo;
         this.sinopse = sinopse;
         this.entrada = entrada;
@@ -35,11 +37,11 @@ public class Filme {
         this.entrada = entrada;
     }
 
-    public int getImagem() {
+    public Uri getImagem() {
         return imagem;
     }
 
-    public void setImagem(int imagem) {
+    public void setImagem(Uri imagem) {
         this.imagem = imagem;
     }
 }
