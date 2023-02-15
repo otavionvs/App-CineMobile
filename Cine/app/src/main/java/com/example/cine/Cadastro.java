@@ -33,7 +33,7 @@ public class Cadastro extends AppCompatActivity {
             ImageView imageView = findViewById(R.id.imageView);
             imageView.setImageURI(selectedImagem);
         }else{
-            System.out.println("oi");
+            System.out.println("sla");
         }
     }
 
@@ -48,12 +48,12 @@ public class Cadastro extends AppCompatActivity {
         Button botaoCadastro = findViewById(R.id.buttonCadastrar);
         botaoCadastro.setOnClickListener((v -> {
             Intent i = new Intent(Cadastro.this, MainActivity.class);
-            EditText nome = (EditText)  findViewById(R.id.inputTitulo);
-            i.putExtra("nome", nome.getText().toString());
+            EditText titulo = (EditText)  findViewById(R.id.inputTitulo);
+            i.putExtra("titulo", titulo.getText().toString());
             EditText sinopse = (EditText)  findViewById(R.id.inputSinopse);
             i.putExtra("sinopse", sinopse.getText().toString());
-            EditText editora = (EditText)  findViewById(R.id.inputEntrada);
-            i.putExtra("editora", editora.getText().toString());
+            EditText entrada = (EditText)  findViewById(R.id.inputEntrada);
+            i.putExtra("entrada", entrada.getText().toString());
             if(uri != null){
                 i.putExtra("imagem", uri.toString());
             }else{

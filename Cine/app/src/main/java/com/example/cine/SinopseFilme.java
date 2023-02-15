@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.List;
+
 public class SinopseFilme extends AppCompatActivity {
 
 //    FloatingActionButton voltar;
@@ -74,39 +76,20 @@ public class SinopseFilme extends AppCompatActivity {
                 finish();
             }
         });
+
+        Button deletar = findViewById(R.id.deleta);
+        deletar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity.listaFilmes.remove(MainActivity.filmeClicado);
+                MainActivity.adapter.notifyItemRemoved(MainActivity.filmeClicado);
+                System.out.println("Aqui: " + savedInstanceState);
+                finish();
+            }
+        });
     }
 
-//    @Override
-//    protected void onCreate(@Nullable Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_sinopse_filme);
-//
-//        Bundle extras = getIntent().getExtras();
-//        if (extras != null) {
-//            String titulo = extras.getString("titulo");
-//            TextView nometxt = (TextView) findViewById(R.id.titulo);
-//            nometxt.setText(titulo);
-//            String sinopse = extras.getString("sinopse");
-//            TextView sinopsetxt = (TextView) findViewById(R.id.sinopse);
-//            sinopsetxt.setText(sinopse);
-//            String entrada = extras.getString("entrada");
-//            TextView entradatxt = (TextView) findViewById(R.id.entrada);
-//            entradatxt.setText(entrada);
-//            String imagem = extras.getString("imagem");
-//
-//        }
-//
-//        voltar = findViewById(R.id.voltar2);
-//
-//        voltar.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i = new Intent(getApplicationContext(), MainActivity.class);
-//                startActivity(i);
-//            }
-//        });
-//
-//    }
+
 
 //    private void updateLabel() {
 //        Filme  filme = MainActivity.listaFilmes.get(this.pos);

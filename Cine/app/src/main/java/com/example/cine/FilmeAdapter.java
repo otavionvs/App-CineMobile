@@ -25,6 +25,7 @@ public class FilmeAdapter extends RecyclerView.Adapter<FilmeViewHolder> {
         this.listener = listener;
     }
 
+
     @NonNull
     @Override
     public FilmeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int typeView) {
@@ -35,8 +36,10 @@ public class FilmeAdapter extends RecyclerView.Adapter<FilmeViewHolder> {
     public void onBindViewHolder(@NonNull FilmeViewHolder filmeViewHolder, @SuppressLint("RecyclerView") int position) {
         filmeViewHolder.nomeFilme.setText(listaFilmes.get(position).getTitulo());
         filmeViewHolder.sinopseFilme.setText(listaFilmes.get(position).getSinopse());
+        filmeViewHolder.entradaFilme.setText(listaFilmes.get(position).getEntrada());
         filmeViewHolder.fotoFilme.setImageURI(listaFilmes.get(position).getImagem());
 
+        MainActivity.filmeClicado = position;
         filmeViewHolder.quadrado.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
