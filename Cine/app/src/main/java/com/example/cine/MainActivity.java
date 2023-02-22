@@ -16,9 +16,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements SelectListener{
+public class MainActivity extends AppCompatActivity implements SelectListener {
 
-//    private RecyclerView recycler;
+    //    private RecyclerView recycler;
     static FilmeAdapter adapter;
     public static List<Filme> listaFilmes = new ArrayList<Filme>();
     static int filmeClicado;
@@ -26,11 +26,8 @@ public class MainActivity extends AppCompatActivity implements SelectListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
@@ -40,14 +37,11 @@ public class MainActivity extends AppCompatActivity implements SelectListener{
             String imagem = extras.getString("imagem");
             Uri fotoconvetida = Uri.parse(imagem);
             listaFilmes.add(new Filme(titulo, sinopse, entrada, fotoconvetida));
-        }else {
+        } else {
 //            listaFilmes.add(new Filme("Wakanda Forever", "Um filme da Marvel","123", R.drawable.addams));
 //            listaFilmes.add(new Filme("Familia Addams", "Um Otimo filme@gmail.com","123", R.drawable.addams));
         }
-
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
-
-
 
         Button botao = findViewById(R.id.cadastro);
         botao.setOnClickListener(new View.OnClickListener() {
@@ -56,9 +50,7 @@ public class MainActivity extends AppCompatActivity implements SelectListener{
                 Intent i = new Intent(MainActivity.this, Cadastro.class);
                 startActivity(i);
             }
-
         });
-
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new FilmeAdapter(getApplicationContext(), listaFilmes, this));
     }
@@ -72,7 +64,6 @@ public class MainActivity extends AppCompatActivity implements SelectListener{
         i.putExtra("imagem", filme.getImagem().toString());
         startActivity(i);
     }
-
 
 
 }

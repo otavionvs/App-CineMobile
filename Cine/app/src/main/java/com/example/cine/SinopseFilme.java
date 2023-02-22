@@ -25,27 +25,6 @@ public class SinopseFilme extends AppCompatActivity {
 //    Filme filme;
 //    int pos = 0;
 
-
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_sinopse_filme);
-//
-//        Intent intent = getIntent();
-//        pos = intent.getIntExtra("filme", 0);
-//
-//        voltar = findViewById(R.id.voltar2);
-//
-//        voltar.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i = new Intent(getApplicationContext(), MainActivity.class);
-//                startActivity(i);
-//            }
-//        });
-//
-//        this.updateLabel();
-//    }
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,7 +49,7 @@ public class SinopseFilme extends AppCompatActivity {
         }
 
         FloatingActionButton botaoVoltar = findViewById(R.id.voltarDetalhes);
-        botaoVoltar.setOnClickListener(new View.OnClickListener(){
+        botaoVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
                 finish();
@@ -90,7 +69,6 @@ public class SinopseFilme extends AppCompatActivity {
     }
 
 
-
 //    private void updateLabel() {
 //        Filme  filme = MainActivity.listaFilmes.get(this.pos);
 //
@@ -104,3 +82,23 @@ public class SinopseFilme extends AppCompatActivity {
 //        entradaFilme2.setText(filme.getEntrada());
 //    }
 }
+
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_sinopse_filme);
+//
+//        Intent intent = getIntent();
+//        pos = intent.getIntExtra("filme", 0);
+//
+//        voltar = findViewById(R.id.voltar2);
+//
+//        voltar.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+//                startActivity(i);
+//            }
+//        });
+//
+//        this.updateLabel();
+//    }

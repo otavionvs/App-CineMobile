@@ -29,10 +29,10 @@ public class Cadastro extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK && data != null) {
             Uri selectedImagem = data.getData();
-            uri =selectedImagem;
+            uri = selectedImagem;
             ImageView imageView = findViewById(R.id.imageView);
             imageView.setImageURI(selectedImagem);
-        }else{
+        } else {
             System.out.println("sla");
         }
     }
@@ -48,15 +48,15 @@ public class Cadastro extends AppCompatActivity {
         Button botaoCadastro = findViewById(R.id.buttonCadastrar);
         botaoCadastro.setOnClickListener((v -> {
             Intent i = new Intent(Cadastro.this, MainActivity.class);
-            EditText titulo = (EditText)  findViewById(R.id.inputTitulo);
+            EditText titulo = (EditText) findViewById(R.id.inputTitulo);
             i.putExtra("titulo", titulo.getText().toString());
-            EditText sinopse = (EditText)  findViewById(R.id.inputSinopse);
+            EditText sinopse = (EditText) findViewById(R.id.inputSinopse);
             i.putExtra("sinopse", sinopse.getText().toString());
-            EditText entrada = (EditText)  findViewById(R.id.inputEntrada);
+            EditText entrada = (EditText) findViewById(R.id.inputEntrada);
             i.putExtra("entrada", entrada.getText().toString());
-            if(uri != null){
+            if (uri != null) {
                 i.putExtra("imagem", uri.toString());
-            }else{
+            } else {
                 i.putExtra("imagem", "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAITSURBVHgB7Zg7SANBFEU3fgkoBC1SpEmTQiux0EKstBIxmo+aOq12KbW1TSfYCDZiayUWYiFWVlqIhY0kfgtB8P8b75AFl9nRjHnxbYo5cAlJzs7elw277DqOxWKxWCyWxkIIMYlcIefIhIF7iZSruaygzADyKL65qIfLCorE3KPgpUR1WUGJMHKgFPtEchSXFRQIIevCzxLFZQclFjTFNpEmissKCkwhH0qxI6ST4rKCAn3IvVLsBolTXFZQIIqcKcVekGGKywoKtCF7wk+e4rKDEquaYkWqywpKFDTFtpEWissKCowh70qxEyRCcVlBgR7kTil2iyQoLiso0IWcKsXekBGKywoKtCI7ws88xWUHJZY1xVaoLisoMacptit/eYpbbadJUbnLkkk7RLDGqPvf9iL/+90U12THZc8ictFZp0awbUJUzjJe5Fmol+Ka7rykLFbTMNgmghwra8nrwTjF/UuBFPJKGQZuM7Il/BQobi3DZCjDwCtqiq1RXdZh8H1eU2wfaae4rMPg8yHkWfHl/UOU4rIOg/dx5FrxHpB+zZrGLusweO1ADpXv5WOZjGYtY/e/hpkR/ouVfJ8TlacXKovudt4LbPY3lw3scFpzZHRsICF3m7Kpyz1MVviPjBf55C/s8UumbhDD/HRk5NPwmOKmTN1AEP4TwBMySHUDAWXS7i8rk6yXa7FYLBZL0HwBYmOUou1TWSkAAAAASUVORK5CYII=");
             }
             startActivity(i);
