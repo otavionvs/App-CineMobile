@@ -37,15 +37,32 @@ public class FilmeAdapter extends RecyclerView.Adapter<FilmeViewHolder> {
         filmeViewHolder.entradaFilme.setText(listaFilmes.get(position).getEntrada());
         filmeViewHolder.fotoFilme.setImageURI(listaFilmes.get(position).getImagem());
 
-        MainActivity.filmeClicado = position;
+        filmeViewHolder.deletar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.deleteItem(position);
+            };
+        });
+
+//        System.out.println("Aqui esta a posição: " + position);
+//
         filmeViewHolder.quadrado.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                MainActivity.filmeClicado = position;
                 listener.onItemClicked(listaFilmes.get(position));
             }
 
             ;
         });
+
+
+
+//        filmeViewHolder.deletar.setOnClickListener(v -> {
+//            MainActivity.listaFilmes.remove(position);
+//            MainActivity.adapter.notifyItemRemoved(position);
+//                }
+//        );
     }
 
     @Override

@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity implements SelectListener {
 
     //    private RecyclerView recycler;
     static FilmeAdapter adapter;
-    public static List<Filme> listaFilmes = new ArrayList<Filme>();
+    static List<Filme> listaFilmes = new ArrayList<Filme>();
     static int filmeClicado;
 //    private int [] imagens = {R.drawable.pantera, R.drawable.addams, R.drawable.jurassic};
 
@@ -51,8 +51,11 @@ public class MainActivity extends AppCompatActivity implements SelectListener {
                 startActivity(i);
             }
         });
+
+        adapter = new FilmeAdapter(getApplicationContext(), listaFilmes, this);
+
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new FilmeAdapter(getApplicationContext(), listaFilmes, this));
+        recyclerView.setAdapter(adapter);
     }
 
     @Override
@@ -65,7 +68,11 @@ public class MainActivity extends AppCompatActivity implements SelectListener {
         startActivity(i);
     }
 
-
+    @Override
+    public void deleteItem(int position){
+        listaFilmes.remove(position);
+        adapter.notifyItemRemoved(position);
+    }
 }
 
 
